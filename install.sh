@@ -1,4 +1,5 @@
 #!/bin/bash
+# curl -fsSLO https://raw.githubusercontent.com/nrobinson2000/sentry/master/install.sh | bash
 
 # Install git and pip3
 sudo apt update
