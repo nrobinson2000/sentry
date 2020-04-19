@@ -11,11 +11,13 @@
   let moving = false
 
   function move (direction) {
-    moving = true
+    if (!moving) {
+      moving = true
 
-    fetch(`/api/move?direction=${direction}`, {
-      method: 'POST'
-    })
+      fetch(`/api/move?direction=${direction}`, {
+        method: 'POST'
+      })
+    }
   }
 
   function stop () {
