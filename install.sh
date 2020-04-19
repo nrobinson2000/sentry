@@ -15,8 +15,14 @@ cd sentry
 # Install udev file to allow non-root access to the USB device
 sudo cp 99-sentry.rules /etc/udev/rules.d/
 
+# sudo vim /etc/default/motion
+# start_motion_daemon=yes
+
+# sudo vim /etc/motion/motion.conf 
+
 echo "
 daemon on
+videodevice /dev/video2
 width 640
 height 480
 framerate 5
@@ -26,6 +32,3 @@ stream_motion on
 stream_maxrate 5
 stream_localhost off
 "
-
-# sudo motion
-# sudo chmod 777 /var/log/motion/motion.log
