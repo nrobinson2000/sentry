@@ -1,6 +1,8 @@
 # sentry
 
-Based on https://github.com/nmilford/stormLauncher
+**Control a USB Sentry Turret with Python on a Raspberry Pi**
+
+The script installs **motion**, a webcam server and the dependencies to run the turret control script.
 
 # Installation
 
@@ -31,3 +33,9 @@ $ python3
 >>> sentry.stop() 		# Stop any movement in progress
 >>> sentry.fire() 		# Fire the cannon
 ```
+
+# Credits
+
+https://github.com/nmilford/stormLauncher
+
+https://timmurphy.org/2018/09/30/reading-keyboard-input-with-python/

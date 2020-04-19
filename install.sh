@@ -16,19 +16,21 @@ cd sentry
 sudo cp 99-sentry.rules /etc/udev/rules.d/
 
 # sudo vim /etc/default/motion
+# Change the line to:
+
 # start_motion_daemon=yes
 
-# sudo vim /etc/motion/motion.conf 
 
-echo "
-daemon on
-videodevice /dev/video2
-width 640
-height 480
-framerate 5
-ffmpeg_output_movies off
-stream_quality 90
-stream_motion on
-stream_maxrate 5
-stream_localhost off
-"
+# sudo vim /etc/motion/motion.conf 
+# Change the following settings:
+
+# daemon on
+# videodevice /dev/video2
+# width 640
+# height 480
+# framerate 5
+# ffmpeg_output_movies off
+# stream_quality 90
+# stream_motion on
+# stream_maxrate 5
+# stream_localhost off
