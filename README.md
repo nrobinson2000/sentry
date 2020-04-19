@@ -5,7 +5,7 @@ Based on https://github.com/nmilford/stormLauncher
 # Installation
 
 ```bash
-# bash -v <(curl -sL https://raw.githubusercontent.com/nrobinson2000/sentry/master/install.sh)
+$ bash -v <(curl -sL https://raw.githubusercontent.com/nrobinson2000/sentry/master/install.sh)
 ```
 
 # Usage
@@ -31,4 +31,3 @@ $ python3
 >>> sentry.stop() 		# Stop any movement in progress
 >>> sentry.fire() 		# Fire the cannon
 ```
-
