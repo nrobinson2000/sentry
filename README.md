@@ -15,7 +15,7 @@ Interactive utility:
 Use the arrow keys to move the turret, press CTRL-C to exit.
 
 ```bash
-$ python3 sentry-control.py
+$ ./sentry-control.py
 ```
 
 Command line scripting:
