@@ -12,17 +12,38 @@ $ bash -v <(curl -sL https://raw.githubusercontent.com/nrobinson2000/sentry/mast
 
 # Usage
 
-Interactive utility:
+## Web interface:
+
+The web interface allow you to view the stream from the motion server and control the movement of the turret, as well as the lights on the front. Move with the arrow keys or clicking on the image, and press enter to toggle the light. You can also use the color picker to set a custom color.
+
+Running the app:
+
+```bash
+$ ./app.sh
+```
+*To close the screen and leave the app running press CTRL-A +D*
+
+Open a browser window on port 5000 to view the app.
+
+Example:
+
+```
+http://sentry.local:5000
+```
+
+## Command line utility:
 
 Use the arrow keys to move the turret, press CTRL-C to exit.
 
 ```bash
+$ cd cli/
 $ ./sentry-control.py
 ```
 
-Command line scripting:
+## Python scripting:
 
 ```
+$ cd cli/
 $ python3
 
 >>> from sentry import sentry 	# Load the sentry module

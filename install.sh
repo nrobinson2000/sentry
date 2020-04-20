@@ -7,7 +7,7 @@ sudo apt install -y git python3-pip vim motion
 
 # Clone the git repository
 git clone https://github.com/nrobinson2000/sentry
-cd sentry
+cd sentry/cli/
 
 # Install python dependencies
 sudo pip3 install -r requirements.txt
@@ -28,9 +28,10 @@ sudo cp 99-sentry.rules /etc/udev/rules.d/
 # videodevice /dev/video2
 # width 640
 # height 480
-# framerate 5
+# framerate 30
+# threshold 1000
 # ffmpeg_output_movies off
 # stream_quality 90
 # stream_motion on
-# stream_maxrate 5
+# stream_maxrate 30
 # stream_localhost off
