@@ -25,7 +25,7 @@ class launchControl:
       self.dev.set_configuration()
 
    def up(self):
-      self.dev.ctrl_transfer(0x21,0x09,0,0,[0x02,0x02,0x00,0x00,0x00,0x00,0x00,0x00]) 
+      self.dev.ctrl_transfer(0x21,0x09,0,0,[0x02,0x02,0x00,0x00,0x00,0x00,0x00,0x00])
 
    def down(self):
       self.dev.ctrl_transfer(0x21,0x09,0,0,[0x02,0x01,0x00,0x00,0x00,0x00,0x00,0x00])
@@ -42,18 +42,18 @@ class launchControl:
    def fire(self):
       self.dev.ctrl_transfer(0x21,0x09,0,0,[0x02,0x10,0x00,0x00,0x00,0x00,0x00,0x00])
 
-   def lightOn(self):
-       self.ser.write(b"255,255,255\n")
-   
-   def lightOff(self):
+   def light_on(self, r = 255, g = 255, b = 255):
+       self.ser.write(f"{r},{g},{b}\n".encode("ascii"))
+
+   def light_off(self):
        self.ser.write(b"0,0,0\n")
 
-   def toggle(self):
+   def toggle_light(self):
        if self.light_state is False:
-           self.lightOn()
+           self.light_on()
            self.light_state = True
        else:
-           self.lightOff()
+           self.light_off()
            self.light_state = False
 
 sentry = launchControl()

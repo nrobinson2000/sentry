@@ -1,11 +1,12 @@
 {
   'use strict'
 
-  const { fetch } = window
+  const { fetch, parseInt } = window
 
   const image = document.getElementsByTagName('img')[0]
   const fullscreenButton = document.getElementById('fullscreen-button')
-  const toggleButton = document.getElementById('toggle-button')
+  const lightColorPicker = document.getElementById('light-color-picker')
+  const toggleLightButton = document.getElementById('toggle-light-button')
 
   const imageOffsetLeft = image.offsetLeft
   const imageOffsetTop = image.offsetTop
@@ -32,13 +33,17 @@
     }
   }
 
-  function toggle () {
-    fetch('/api/toggle', {
+  function changeLightColor (r, g, b) {
+    fetch(`/api/light-color?r=${r}&g=${g}&b=${b}`, {
       method: 'POST'
     })
   }
 
-
+  function toggleLight () {
+    fetch('/api/toggle-light', {
+      method: 'POST'
+    })
+  }
 
   function fire () {
     fetch('/api/fire', {
@@ -75,10 +80,19 @@
     image.requestFullscreen()
   })
 
-  toggleButton.addEventListener('click', () => {
-    toggle()
+  lightColorPicker.addEventListener('change', () => {
+    let color = lightColorPicker.value
+
+    let r = parseInt(color.slice(1, 3), 16)
+    let g = parseInt(color.slice(3, 5), 16)
+    let b = parseInt(color.slice(5, 7), 16)
+
+    changeLightColor(r, g, b)
   })
 
+  toggleLightButton.addEventListener('click', () => {
+    toggleLight()
+  })
 
   image.addEventListener('touchstart', event => {
     event.preventDefault()
@@ -146,14 +160,11 @@
 
       case 'ArrowDown':
         move('down')
-	
+
 	break
 
       case 'Enter':
-        toggle()
-	
-	break
-
+        toggleLight()
     }
   })
 

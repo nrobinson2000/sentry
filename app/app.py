@@ -39,12 +39,30 @@ def fire():
 
     return ''
 
-
-@app.route('/api/toggle', methods=['POST'])
-def toggle():
-    sentry.toggle()
+@app.route('/api/toggle-light', methods=['POST'])
+def toggle_light():
+    sentry.toggle_light()
 
     return ''
+
+@app.route('/api/light-color', methods=['POST'])
+def light_color():
+    args = request.args
+
+    r = args.get('r')
+    g = args.get('g')
+    b = args.get('b')
+
+    if r and g and b and r.isdigit() and g.isdigit() and b.isdigit():
+        r = int(r)
+        g = int(g)
+        b = int(b)
+
+        sentry.light_on(r, g, b)
+
+        return ''
+
+    return '', 400
 
 
 
