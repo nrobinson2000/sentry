@@ -39,4 +39,15 @@ def fire():
 
     return ''
 
+
+@app.route('/api/toggle', methods=['POST'])
+def toggle():
+    sentry.toggle()
+
+    return ''
+
+
+
+
+
 app.run('0.0.0.0', debug=True)

@@ -5,12 +5,12 @@
 sudo apt update
 sudo apt install -y git python3-pip vim motion
 
-# Install python dependencies
-sudo pip3 install pyusb
-
 # Clone the git repository
 git clone https://github.com/nrobinson2000/sentry
 cd sentry
+
+# Install python dependencies
+sudo pip3 install -r requirements.txt
 
 # Install udev file to allow non-root access to the USB device
 sudo cp 99-sentry.rules /etc/udev/rules.d/

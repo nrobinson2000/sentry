@@ -4,10 +4,14 @@ import os
 import sys
 import time
 import usb.core
+import serial
+
 
 class launchControl:
    def __init__(self):
       self.dev = usb.core.find(idVendor=0x2123, idProduct=0x1010)
+      self.ser = serial.Serial("/dev/ttyUSB0", 115200)
+
       if self.dev is None:
          raise ValueError('Launcher not found.')
       if self.dev.is_kernel_driver_active(0) is True:
@@ -31,5 +35,11 @@ class launchControl:
 
    def fire(self):
       self.dev.ctrl_transfer(0x21,0x09,0,0,[0x02,0x10,0x00,0x00,0x00,0x00,0x00,0x00])
+
+   def lightOn(self):
+       self.ser.write(b"255,255,255\n")
+   
+   def lightOff(self):
+       self.ser.write(b"0,0,0\n")
 
 sentry = launchControl()

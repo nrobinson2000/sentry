@@ -4,6 +4,8 @@
   const { fetch } = window
 
   const image = document.getElementsByTagName('img')[0]
+  const fullscreenButton = document.getElementById('fullscreen-button')
+  const toggleButton = document.getElementById('toggle-button')
 
   const imageOffsetLeft = image.offsetLeft
   const imageOffsetTop = image.offsetTop
@@ -29,6 +31,14 @@
       })
     }
   }
+
+  function toggle () {
+    fetch('/api/toggle', {
+      method: 'POST'
+    })
+  }
+
+
 
   function fire () {
     fetch('/api/fire', {
@@ -60,6 +70,15 @@
       move(['up', 'down'][yDirection])
     }
   }
+
+  fullscreenButton.addEventListener('click', () => {
+    image.requestFullscreen()
+  })
+
+  toggleButton.addEventListener('click', () => {
+    toggle()
+  })
+
 
   image.addEventListener('touchstart', event => {
     event.preventDefault()
@@ -127,6 +146,14 @@
 
       case 'ArrowDown':
         move('down')
+	
+	break
+
+      case 'Enter':
+        toggle()
+	
+	break
+
     }
   })
 
