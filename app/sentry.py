@@ -59,9 +59,7 @@ class Sentry:
    def toggle_light(self):
        if self.light_state is False:
            self.light_on()
-           self.light_state = True
        else:
            self.light_off()
-           self.light_state = False
 
 sentry = Sentry()
