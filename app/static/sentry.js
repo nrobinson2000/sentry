@@ -8,6 +8,11 @@
   const lightColorPicker = document.getElementById('light-color-picker')
   const toggleLightButton = document.getElementById('toggle-light-button')
 
+  const mobileUpButton = document.getElementById('mobile-up')
+  const mobileLeftButton = document.getElementById('mobile-left')
+  const mobileRightButton = document.getElementById('mobile-right')
+  const mobileDownButton = document.getElementById('mobile-down')
+
   const imageOffsetLeft = image.offsetLeft
   const imageOffsetTop = image.offsetTop
 
@@ -92,6 +97,28 @@
 
   toggleLightButton.addEventListener('click', () => {
     toggleLight()
+  })
+
+  const mobileTimeout = 500
+
+  mobileUpButton.addEventListener('click', () => {
+    move('up')
+    setTimeout(stop, mobileTimeout)
+  })
+
+  mobileLeftButton.addEventListener('click', () => {
+    move('left')
+    setTimeout(stop, mobileTimeout)
+  })
+
+  mobileRightButton.addEventListener('click', () => {
+    move('right')
+    setTimeout(stop, mobileTimeout)
+  })
+
+   mobileDownButton.addEventListener('click', () => {
+    move('down')
+    setTimeout(stop, mobileTimeout)
   })
 
   image.addEventListener('touchstart', event => {
