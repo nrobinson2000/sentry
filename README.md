@@ -16,6 +16,8 @@ $ bash -v <(curl -sL https://raw.githubusercontent.com/nrobinson2000/sentry/mast
 
 ## Web interface:
 
+![](screenshot.png)
+
 The web interface allow you to view the stream from the motion server and control the movement of the turret, as well as the lights on the front. Move with the arrow keys or clicking on the image, and press enter to toggle the light. You can also use the color picker to set a custom color.
 
 Running the app:
