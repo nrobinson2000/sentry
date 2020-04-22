@@ -1,5 +1,7 @@
 # sentry
 
+![](sentry.jpeg)
+
 **Control a USB Sentry Turret with Python on a Raspberry Pi**
 
 The script installs **motion**, a webcam server and the dependencies to run the turret control script.
@@ -23,12 +25,12 @@ $ ./app.sh
 ```
 *To close the screen and leave the app running press CTRL-A +D*
 
-Open a browser window on port 5000 to view the app.
+Open a browser window to view the app.
 
 Example:
 
 ```
-http://sentry.local:5000
+http://sentry.local
 ```
 
 ## Command line utility:
@@ -54,6 +56,16 @@ $ python3
 >>> sentry.stop() 		# Stop any movement in progress
 >>> sentry.fire() 		# Fire the cannon
 ```
+
+# Parts List
+
+* Rasperry Pi - I had a spare [3 Model B](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/)
+* Arduino Nano - Any one will do. I used a chinese clone that featured a USB micro B port.
+* Playstation Eye Camera - Cheap but reliable.
+* Dream Cheeky 908 Thunder Missile Launcher - A long discontinued product that I found in my house.
+* NeoPixel Ring with 16 pixels - A bright RGB LED ring that can be bought from [Adafruit.](https://www.adafruit.com/product/1463)
+* Jumper wires to connect the NeoPixel to the Arduino Nano
+* Rubber bands to secure everything to the launcher
 
 # Credits
 
